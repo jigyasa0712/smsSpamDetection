@@ -8,7 +8,24 @@ from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from nltk.tokenize import word_tokenize
 
-nltk.data.path.append('./nltk_data')
+nltk_data_path = './nltk_data'
+nltk.data.path.append(nltk_data_path)
+
+# Check and download 'punkt'
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    print("Downloading 'punkt' NLTK data...")
+    nltk.download('punkt', download_dir=nltk_data_path)
+    print("'punkt' NLTK data downloaded.")
+
+# Check and download 'stopwords'
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
+    print("Downloading 'stopwords' NLTK data...")
+    nltk.download('stopwords', download_dir=nltk_data_path)
+    print("'stopwords' NLTK data downloaded.")
 
 ps = PorterStemmer()
 
