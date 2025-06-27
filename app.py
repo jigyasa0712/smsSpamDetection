@@ -8,11 +8,13 @@ from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from nltk.tokenize import word_tokenize
 
+nltk.data.path.append('./nltk_data')
+
 ps = PorterStemmer()
 
 def transform_text(text):
     text = text.lower()
-    text = nltk.word_tokenize(text)
+    text = word_tokenize(text)
 
     y = []
     for i in text:
